@@ -3,7 +3,7 @@ now debug
 
 ## サンプルコード
 
-```
+```cpp
 #include "ICM45686.h"
 
 ICM45686 icm(&hi2c2);
