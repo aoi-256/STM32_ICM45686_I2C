@@ -19,8 +19,8 @@ class ICM45686_HAL {
 
 			ACCEL_DATA_X1_UI = 0x00,
 			PWR_MGMT0        = 0x10,
-			ACCEL_CONFIG     = 0x18,
-			GYRO_CONFIG 	 = 0x19,
+			ACCEL_CONFIG     = 0x1B,
+			GYRO_CONFIG 	 = 0x1C,
 			WHO_AM_I   		 = 0x72
 		};
 
