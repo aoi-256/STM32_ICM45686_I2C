@@ -6,6 +6,7 @@
 
 ```cpp
 #include "ICM45686.h"
+#include "usart.h"
 
 ICM45686 icm(&hi2c3);
 
