@@ -4,7 +4,8 @@
 
 ## サンプルコード
 
-```cpp
+**wrapper.cpp**
+```cpp 
 #include "ICM45686.h"
 #include "wrapper.hpp"
 #include "usart.h"
@@ -12,33 +13,32 @@
 
 ICM45686 icm(&hi2c3);
 
-int16_t gyro_data[3];
-int16_t accel_data[3];
+int16_t Gyro_Data[3];
+int16_t Accel_Data[3];
 
-void send_data(int16_t data[3]);
+void Send_Data(int16_t data[3]);
 
 void init(){
 
-	icm.verify_connection();
-	icm.accel_mode(icm.mode::low_noize, icm.accel_scale::scale_02g, icm.odr::rate_6400hz);
-	icm.gyro_mode(icm.mode::low_noize, icm.gyro_scale::scale_0250dps, icm.odr::rate_6400hz);
+	icm.Connection();
+	icm.Accel_Config(icm.Mode::low_noize, icm.Accel_Scale::scale_02g, icm.ODR::rate_6400hz);
+	icm.Gyro_Config(icm.Mode::low_noize, icm.Gyro_Scale::scale_0250dps, icm.ODR::rate_6400hz);
+
 }
 
 void loop(){
 
-	icm.get_data(accel_data, gyro_data);
-
-	send_data(gyro_data);
-	//send_data(accel_data);
-
+	icm.Get_Data(Accel_Data, Gyro_Data);
+	Send_Data(Accel_Data);
 	HAL_Delay(1);
 }
 
-void send_data(int16_t data[3]){
+void Send_Data(int16_t Data[3]){
 
 	std::string str;
-	str = std::to_string(data[0]) + " " + std::to_string(data[1]) + " " + std::to_string(data[2]) + "\n";
+	str = std::to_string(Data[0]) + " " + std::to_string(Data[1]) + " " + std::to_string(Data[2]) + "\n";
 
 	HAL_UART_Transmit(&huart2, (uint8_t *)str.c_str(),str.length(),100);
 }
+
 ```
