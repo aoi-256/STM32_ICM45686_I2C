@@ -5,8 +5,8 @@
 ## サンプルコード
 
 ```cpp
-#include "wrapper.hpp"
 #include "ICM45686.h"
+#include "wrapper.hpp"
 #include "usart.h"
 #include <string>
 
@@ -20,21 +20,18 @@ void send_data(int16_t data[3]);
 void init(){
 
 	icm.verify_connection();
-	icm.accel_mode(icm.mode::low_noize, icm.accel_scale::scale_02g, icm.odr::rate_0800hz);
-	icm.gyro_mode(icm.mode::low_noize, icm.gyro_scale::scale_0250dps, icm.odr::rate_0800hz);
+	icm.accel_mode(icm.mode::low_noize, icm.accel_scale::scale_02g, icm.odr::rate_6400hz);
+	icm.gyro_mode(icm.mode::low_noize, icm.gyro_scale::scale_0250dps, icm.odr::rate_6400hz);
 }
 
 void loop(){
 
-	uint8_t is_get = icm.get_data(accel_data, gyro_data);
-	
-	if(is_get == 0){
+	icm.get_data(accel_data, gyro_data);
 
-		send_data(gyro_data);
-		send_data(accel_data);
+	send_data(gyro_data);
+	//send_data(accel_data);
 
-		is_get = 1;
-	}
+	HAL_Delay(1);
 }
 
 void send_data(int16_t data[3]){
