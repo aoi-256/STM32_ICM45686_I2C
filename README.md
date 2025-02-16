@@ -5,6 +5,7 @@
 ## サンプルコード
 
 ```cpp
+#include "wrapper.hpp"
 #include "ICM45686.h"
 #include "usart.h"
 #include <string>
