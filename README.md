@@ -1,10 +1,14 @@
-# STM32 ICM45686 I2C
+# STM32_ICM45686_I2C
 
 STM32でI2C通信でセンサーデータが取れるコードです
 
+SPI通信で実装したい方はこちら（リンク先作成中）
+
 ## 使い方
 
-I2CのStandard・Fast Modeに対応しています(FastPlusは不安定なので非推奨です）
+I2CのStandard・Fast Modeに対応しています
+
+(FastPlusは不安定なので非推奨です）
 
 ### 設定変更について
 
