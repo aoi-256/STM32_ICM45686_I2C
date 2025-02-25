@@ -1,7 +1,5 @@
 #include "ICM45686.h"
 #include "wrapper.hpp"
-#include "usart.h"
-#include <string>
 
 ICM45686 icm(&hi2c3);
 
