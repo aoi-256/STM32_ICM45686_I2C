@@ -82,3 +82,8 @@ void Send_Data(int16_t Data[3]){
 	HAL_UART_Transmit(&huart2, (uint8_t *)str.c_str(),str.length(),100);
 }
 ```
+
+## アップデートについて
+
+- Get_Data関数のエラー判定と処理を追加する予定です
+- SPI通信版も作成中です
