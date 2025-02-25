@@ -72,9 +72,7 @@ class ICM45686: private ICM45686_HAL {
 
 	private:
 
-		I2C_HandleTypeDef* I2C_Pin;
-		uint8_t Raw_Data[12];
-
+		uint8_t Raw_Data[12] = {};
 };
 
 #endif /* INC_ICM45686_H_ */
