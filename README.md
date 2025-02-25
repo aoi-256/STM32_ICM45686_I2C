@@ -2,7 +2,7 @@
 
 STM32でI2C通信でセンサーデータが取れるコードです
 
-** Sample Code**
+**Sample Code**
 ```cpp
 
 #include "ICM45686.h"
